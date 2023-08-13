@@ -3,7 +3,7 @@ library "javaRIG"
 pipeline {
   agent {
     docker {
-      image "openjdk:17-jdk-slim"
+      image "cimg/openjdk:17.0.5"
     }
   }
   stages {

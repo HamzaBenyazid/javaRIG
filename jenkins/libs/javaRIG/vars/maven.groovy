@@ -8,7 +8,7 @@ def prepareGradleCommand(tasks, props = [:]) {
         }
         return option
     }.join(' ')
-    return "./mvnw ${tasks} ${options}"
+    return "mvnw ${tasks} ${options}"
 }
 
 def execute(tasks, props = [:]) {
