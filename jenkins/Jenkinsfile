@@ -17,14 +17,14 @@ pipeline {
     stage("Build Project") {
       steps{
         script {
-          gradle.execute("clean install",[skipTests : null])
+          maven.execute("clean install",[skipTests : null])
         }
       }
     }
     stage("Test Project") {
       steps{
         script {
-          gradle.execute("clean test")
+          maven.execute("clean test")
         }
       }
     }
