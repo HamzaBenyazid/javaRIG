@@ -1,0 +1,32 @@
+library "javaRIG"
+
+pipeline {
+  agent {
+    docker {
+      image "openjdk:17-jdk-slim"
+    }
+  }
+  stages {
+    stage("Compile Project"){
+      steps{
+        script {
+          maven.execute("compile")
+        }
+      }
+    }
+    stage("Build Project") {
+      steps{
+        script {
+          gradle.execute("clean install",[skipTests : null])
+        }
+      }
+    }
+    stage("Test Project") {
+      steps{
+        script {
+          gradle.execute("clean test")
+        }
+      }
+    }
+  }
+}
